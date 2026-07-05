@@ -12,14 +12,17 @@ class Product extends Model
         'category_id',
         'name',
         'description',
-        'price',
+        'unit_price',
+        'bundle_price',
+        'units_per_bundle',
         'stock_quantity',
         'minimum_stock',
         'status',
     ];
 
     protected $casts = [
-        'price' => 'decimal:2',
+        'unit_price' => 'decimal:2',
+        'bundle_price' => 'decimal:2',
         'status' => 'boolean',
     ];
 
@@ -30,6 +33,11 @@ class Product extends Model
 
     public function stockMovements(): HasMany
     {
-    return $this->hasMany(StockMovement::class);
+        return $this->hasMany(StockMovement::class);
+    }
+
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }

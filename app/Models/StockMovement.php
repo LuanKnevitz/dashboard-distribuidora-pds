@@ -11,6 +11,8 @@ class StockMovement extends Model
         'product_id',
         'user_id',
         'type',
+        'movement_unit',
+        'input_quantity',
         'quantity',
         'previous_stock',
         'new_stock',
